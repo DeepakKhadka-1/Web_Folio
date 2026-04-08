@@ -1,3 +1,4 @@
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import * as THREE from "three";
 import { useRef, useMemo, useState, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
@@ -13,14 +14,11 @@ import {
 
 const textureLoader = new THREE.TextureLoader();
 const imageUrls = [
-  "/images/react2.webp",
-  "/images/next2.webp",
-  "/images/node2.webp",
-  "/images/express.webp",
-  "/images/mongo.webp",
   "/images/mysql.webp",
-  "/images/typescript.webp",
-  "/images/javascript.webp",
+  "/images/python.png",
+  "/images/excel.png",
+  "/images/powerbi.png",
+  "/images/tableau.png",
 ];
 const textures = imageUrls.map((url) => textureLoader.load(url));
 
@@ -147,6 +145,12 @@ const TechStack = () => {
       });
     });
     window.addEventListener("scroll", handleScroll);
+    
+    // Refresh ScrollTrigger to recalculate page height after this lazy component renders
+    setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 100);
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
@@ -193,7 +197,7 @@ const TechStack = () => {
             <SphereGeo
               key={i}
               {...props}
-              material={materials[Math.floor(Math.random() * materials.length)]}
+              material={materials[i % materials.length]}
               isActive={isActive}
             />
           ))}

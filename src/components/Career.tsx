@@ -15,43 +15,37 @@ const Career = () => {
           <div className="career-info-box">
             <div className="career-info-in">
               <div className="career-role">
-                <h4>Position In Company</h4>
-                <h5>Company Name</h5>
+                <h4>Advanced Certification in Data Science & AI</h4>
+                <h5>E&ICT Academy, IIT Guwahati</h5>
               </div>
-              <h3>20XX</h3>
+              <h3>Pursuing</h3>
             </div>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
-              labore sit non ipsum temporibus quidem, deserunt eaque officiis
-              mollitia ratione suscipit repellat.
+              Gaining formal training in Python, SQL, Power BI, and Tableau. Building a strong foundation in Data cleaning, EDA, and KPI development.
             </p>
           </div>
           <div className="career-info-box">
             <div className="career-info-in">
               <div className="career-role">
-                <h4>Position In Company</h4>
-                <h5>Company Name</h5>
+                <h4>Bachelor of Commerce (B.Com)</h4>
+                <h5>CMR University, Bengaluru</h5>
               </div>
-              <h3>20XX</h3>
+              <h3>2024 - Present</h3>
             </div>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
-              labore sit non ipsum temporibus quidem, deserunt eaque officiis
-              mollitia ratione suscipit repellat.
+              Pursuing Bachelor of Commerce degree with a current CGPA of 8.20. Developing a strong understanding of business and financial principles.
             </p>
           </div>
           <div className="career-info-box">
             <div className="career-info-in">
               <div className="career-role">
-                <h4>Position In Company</h4>
-                <h5>Company Name</h5>
+                <h4>Customer Service Support Operator</h4>
+                <h5>Siemens, Bengaluru</h5>
               </div>
               <h3>NOW</h3>
             </div>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
-              labore sit non ipsum temporibus quidem, deserunt eaque officiis
-              mollitia ratione suscipit repellat.
+              Manage ServiceNow tickets end-to-end within SLA timelines. Support subscription activations, L1 troubleshooting, and booking operations.
             </p>
           </div>
         </div>
