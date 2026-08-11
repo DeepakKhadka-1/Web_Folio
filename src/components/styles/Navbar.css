@@ -1,8 +1,10 @@
 .header {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
   max-width: var(--cMaxWidth);
   width: var(--cWidth);
-  justify-content: space-between;
   padding: 20px 0px;
   margin-bottom: -100px;
   box-sizing: border-box;
@@ -15,13 +17,13 @@
 .header ul {
   font-size: 12px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   margin: 0;
   padding: 0;
   list-style: none;
-  column-gap: 40px;
+  column-gap: 20px;
   row-gap: 8px;
-  align-items: end;
+  align-items: center;
 }
 .header ul li {
   margin-left: 0px;
@@ -31,14 +33,11 @@
   cursor: pointer;
 }
 .navbar-connect {
-  position: absolute;
-  display: none;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 15px;
+  display: block;
+  font-size: 12px;
   letter-spacing: 1px;
   font-weight: 500;
+  text-align: center;
 }
 .navbar-title {
   font-weight: 700;
@@ -47,6 +46,8 @@
 }
 @media only screen and (min-width: 500px) {
   .header {
+    flex-direction: row;
+    justify-content: space-between;
     padding: 20px 0px;
   }
   .header ul {
@@ -63,7 +64,11 @@
 }
 @media only screen and (min-width: 900px) {
   .navbar-connect {
-    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 15px;
   }
 }
 @media only screen and (min-width: 1200px) {

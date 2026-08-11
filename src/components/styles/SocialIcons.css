@@ -9,11 +9,12 @@
 }
 .social-icons {
   position: absolute;
-  left: -20px;
-  bottom: 20px;
-  display: none;
-  flex-direction: column;
-  gap: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -40px;
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
   z-index: 999;
   padding: 10px;
 }
@@ -83,7 +84,10 @@ div.resume-button span {
 }
 @media only screen and (min-width: 900px) {
   .social-icons {
-    display: flex;
+    left: -20px;
+    bottom: 20px;
+    transform: none;
+    flex-direction: column;
     gap: 20px;
   }
   .social-icons a {
