@@ -4,6 +4,7 @@ import "./App.css";
 const CharacterModel = lazy(() => import("./components/Character"));
 const MainContainer = lazy(() => import("./components/MainContainer"));
 import { LoadingProvider } from "./context/LoadingProvider";
+import ErrorBoundary from "./components/ErrorBoundary";
 
 const App = () => {
   return (
@@ -11,9 +12,11 @@ const App = () => {
       <LoadingProvider>
         <Suspense>
           <MainContainer>
-            <Suspense>
-              <CharacterModel />
-            </Suspense>
+            <ErrorBoundary fallbackMessage="Character 3D Model Failed to Load">
+              <Suspense>
+                <CharacterModel />
+              </Suspense>
+            </ErrorBoundary>
           </MainContainer>
         </Suspense>
       </LoadingProvider>

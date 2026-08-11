@@ -1,7 +1,9 @@
 import { useEffect, useRef } from "react";
 import "./styles/WhatIDo.css";
+import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+gsap.registerPlugin(ScrollTrigger);
 const WhatIDo = () => {
   const containerRef = useRef<(HTMLDivElement | null)[]>([]);
   const setRef = (el: HTMLDivElement | null, index: number) => {
@@ -16,6 +18,22 @@ const WhatIDo = () => {
         }
       });
     }
+
+    gsap.fromTo(
+      containerRef.current,
+      { y: 60, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 0.8,
+        stagger: 0.2,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".what-box-in",
+          start: "top 75%",
+        },
+      }
+    );
     return () => {
       containerRef.current.forEach((container) => {
         if (container) {
@@ -36,107 +54,52 @@ const WhatIDo = () => {
       </div>
       <div className="what-box">
         <div className="what-box-in">
-          <div className="what-border2">
-            <svg width="100%">
-              <line
-                x1="0"
-                y1="0"
-                x2="0"
-                y2="100%"
-                stroke="white"
-                strokeWidth="2"
-                strokeDasharray="7,7"
-              />
-              <line
-                x1="100%"
-                y1="0"
-                x2="100%"
-                y2="100%"
-                stroke="white"
-                strokeWidth="2"
-                strokeDasharray="7,7"
-              />
-            </svg>
-          </div>
-          <div
-            className="what-content what-noTouch"
-            ref={(el) => setRef(el, 0)}
-          >
-            <div className="what-border1">
-              <svg height="100%">
-                <line
-                  x1="0"
-                  y1="0"
-                  x2="100%"
-                  y2="0"
-                  stroke="white"
-                  strokeWidth="2"
-                  strokeDasharray="6,6"
-                />
-                <line
-                  x1="0"
-                  y1="100%"
-                  x2="100%"
-                  y2="100%"
-                  stroke="white"
-                  strokeWidth="2"
-                  strokeDasharray="6,6"
-                />
-              </svg>
-            </div>
-            <div className="what-corner"></div>
+          <p className="what-intro-text">
+            I transform business data into actionable insights and improve business processes through analytics, dashboards, and AI-assisted productivity.
+          </p>
 
-            <div className="what-content-in">
-              <h3>DATA ANALYSIS</h3>
-              <h4>Description</h4>
-              <p>
-                Skilled in data cleaning, exploratory data analysis, KPI development, and trend analysis.
-              </p>
-              <h5>Skillset & tools</h5>
-              <div className="what-content-flex">
-                <div className="what-tags">Python</div>
-                <div className="what-tags">SQL</div>
-                <div className="what-tags">Excel</div>
-                <div className="what-tags">Power BI</div>
-                <div className="what-tags">Tableau</div>
-                <div className="what-tags">Pandas</div>
-                <div className="what-tags">NumPy</div>
+          <div className="what-list">
+            {/* Item 1 */}
+            <div className="what-list-item what-noTouch" ref={(el) => setRef(el, 0)}>
+              <div className="what-list-content">
+                <h3 className="what-list-title">DATA ANALYTICS</h3>
+                <p className="what-list-subtitle">Collect • Analyze • Visualize</p>
+                <div className="what-content-flex">
+                  <div className="what-tags">SQL</div>
+                  <div className="what-tags">Python</div>
+                  <div className="what-tags">Power BI</div>
+                  <div className="what-tags">Tableau</div>
+                  <div className="what-tags">Microsoft Excel</div>
+                </div>
               </div>
-              <div className="what-arrow"></div>
             </div>
-          </div>
-          <div
-            className="what-content what-noTouch"
-            ref={(el) => setRef(el, 1)}
-          >
-            <div className="what-border1">
-              <svg height="100%">
-                <line
-                  x1="0"
-                  y1="100%"
-                  x2="100%"
-                  y2="100%"
-                  stroke="white"
-                  strokeWidth="2"
-                  strokeDasharray="6,6"
-                />
-              </svg>
-            </div>
-            <div className="what-corner"></div>
-            <div className="what-content-in">
-              <h3>OPERATIONS SUPPORT</h3>
-              <h4>Description</h4>
-              <p>
-                Handling end-to-end lifecycle ticket management, process tracking, issue resolution and SLA adherence.
-              </p>
-              <h5>Skillset & tools</h5>
-              <div className="what-content-flex">
-                <div className="what-tags">ServiceNow</div>
-                <div className="what-tags">Copilot 360</div>
-                <div className="what-tags">Siemens GPT</div>
-                <div className="what-tags">L1 Troubleshooting</div>
+
+            {/* Item 2 */}
+            <div className="what-list-item what-noTouch" ref={(el) => setRef(el, 1)}>
+              <div className="what-list-content">
+                <h3 className="what-list-title">BUSINESS OPERATIONS</h3>
+                <p className="what-list-subtitle">Support • Resolve • Optimize</p>
+                <div className="what-content-flex">
+                  <div className="what-tags">ServiceNow</div>
+                  <div className="what-tags">Process Management</div>
+                  <div className="what-tags">Issue Resolution</div>
+                  <div className="what-tags">Workflow Optimization</div>
+                </div>
               </div>
-              <div className="what-arrow"></div>
+            </div>
+
+            {/* Item 3 */}
+            <div className="what-list-item what-noTouch" ref={(el) => setRef(el, 2)}>
+              <div className="what-list-content">
+                <h3 className="what-list-title">AI PRODUCTIVITY</h3>
+                <p className="what-list-subtitle">Analyze • Assist • Accelerate</p>
+                <div className="what-content-flex">
+                  <div className="what-tags">ChatGPT</div>
+                  <div className="what-tags">Google Gemini</div>
+                  <div className="what-tags">GitHub</div>
+                  <div className="what-tags">Visual Studio Code</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

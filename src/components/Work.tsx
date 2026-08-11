@@ -1,94 +1,50 @@
 import "./styles/Work.css";
-import WorkImage from "./WorkImage";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
-
-gsap.registerPlugin(useGSAP);
 
 const Work = () => {
-  useGSAP(() => {
-  let translateX: number = 0;
-
-  function setTranslateX() {
-    const box = document.getElementsByClassName("work-box");
-    const rectLeft = document
-      .querySelector(".work-container")!
-      .getBoundingClientRect().left;
-    const rect = box[0].getBoundingClientRect();
-    const parentWidth = box[0].parentElement!.getBoundingClientRect().width;
-    let padding: number =
-      parseInt(window.getComputedStyle(box[0]).padding) / 2;
-    translateX = rect.width * box.length - (rectLeft + parentWidth) + padding;
-  }
-
-  setTranslateX();
-
-  let timeline = gsap.timeline({
-    scrollTrigger: {
-      trigger: ".work-section",
-      start: "top top",
-      end: `+=${translateX}`, // Use actual scroll width
-      scrub: true,
-      pin: true,
-      id: "work",
-    },
-  });
-
-  timeline.to(".work-flex", {
-    x: -translateX,
-    ease: "none",
-  });
-
-  // Clean up (optional, good practice)
-  return () => {
-    timeline.kill();
-    ScrollTrigger.getById("work")?.kill();
-  };
-}, []);
   return (
-    <div className="work-section" id="work">
-      <div className="work-container section-container">
-        <h2>
-          My <span>Work</span>
-        </h2>
-        <div className="work-flex">
-          {[
-            {
-              title: "Supply Chain Intelligence Dashboard",
-              category: "Data Visualization",
-              tools: "Python, SQL, Power BI",
-              image: "/images/supply_chain_dashboard.png",
-            },
-            {
-              title: "E-Commerce Sales Analytics",
-              category: "Data Analysis",
-              tools: "Python, SQL, Tableau",
-              image: "/images/ecommerce_dashboard.png",
-            },
-            {
-              title: "Financial Risk & Transaction Analysis",
-              category: "Risk Assessment",
-              tools: "Microsoft Excel",
-              image: "/images/financial_risk_dashboard.png",
-            },
-          ].map((project, index) => (
-            <div className="work-box" key={index}>
-              <div className="work-info">
-                <div className="work-title">
-                  <h3>0{index + 1}</h3>
-
-                  <div>
-                    <h4>{project.title}</h4>
-                    <p>{project.category}</p>
-                  </div>
-                </div>
-                <h4>Tools and features</h4>
-                <p>{project.tools}</p>
-              </div>
-              <WorkImage image={project.image} alt={project.title} />
+    <div className="work-section section-container" id="work">
+      <div className="work-container">
+        <h2 className="work-section-title">Featured Projects</h2>
+        
+        <div className="work-cards">
+          {/* Project 1 */}
+          <div className="work-card layout-media-left">
+            <a href="https://youtu.be/i0qLbIqCqRo" target="_blank" rel="noopener noreferrer" className="work-card-media-wrapper">
+               <img src="/images/youtube_thumbnail.jpg" alt="AI-Assisted Retail Analytics Dashboard" className="work-media work-image" />
+            </a>
+            <div className="work-card-content">
+               <h3>AI-Assisted Retail Analytics Dashboard</h3>
+               <p>End-to-end retail analytics solution that transforms raw sales data into executive dashboards using Python, SQL, Power BI, and AI-assisted analytics.</p>
+               <div className="work-card-chips">
+                 <span className="work-chip">Python</span>
+                 <span className="work-chip">SQL</span>
+                 <span className="work-chip">Power BI</span>
+                 <span className="work-chip">AI</span>
+               </div>
+               <div className="work-card-buttons">
+                 <a href="https://github.com/DeepakKhadka-1/01-Leveraging-AI-Tools-for-Data-Analytics" target="_blank" rel="noopener noreferrer" className="work-btn primary-btn">View Project →</a>
+               </div>
             </div>
-          ))}
+          </div>
+
+          {/* Project 2 */}
+          <div className="work-card layout-media-right">
+            <div className="work-card-media-wrapper">
+               <img src="/images/hr_dashboard.png" alt="HR Analytics Dashboard" className="work-media work-image" />
+            </div>
+            <div className="work-card-content">
+               <h3>HR Analytics & Attrition Intelligence</h3>
+               <p>Interactive HR analytics dashboard built using Python, SQL, and Tableau to analyze workforce trends, employee attrition, and business insights.</p>
+               <div className="work-card-chips">
+                 <span className="work-chip">Python</span>
+                 <span className="work-chip">SQL</span>
+                 <span className="work-chip">Tableau</span>
+               </div>
+               <div className="work-card-buttons">
+                 <a href="https://github.com/DeepakKhadka-1/02-HR-Analytics-Attrition-Project" target="_blank" rel="noopener noreferrer" className="work-btn primary-btn">View Project →</a>
+               </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

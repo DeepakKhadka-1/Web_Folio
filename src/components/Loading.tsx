@@ -62,9 +62,7 @@ const Loading = ({ percent }: { percent: number }) => {
       <div className="loading-screen">
         <div className="loading-marquee">
           <Marquee>
-            <span> Data Analyst</span> <span> SQL, Python, Power BI</span>
-            <span> Turning Data into Insights</span> <span> Data Analyst</span>
-            <span> SQL, Python, Power BI</span> <span> Turning Data into Insights</span>
+            <span> DATA ANALYST &bull; SQL &bull; PYTHON &bull; POWER BI &bull; EXCEL &bull; TABLEAU &bull; DATA CLEANING &bull; DATA ANALYSIS &bull; DATA VISUALIZATION &bull; DASHBOARD DEVELOPMENT &bull; KPI REPORTING &bull; BUSINESS INTELLIGENCE &bull; PROBLEM SOLVING &bull; DATA STORYTELLING &bull;&nbsp;</span>
           </Marquee>
         </div>
         <div
